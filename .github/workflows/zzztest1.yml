@@ -1,0 +1,16 @@
+name: zzztest1
+on: 
+  workflow_dispatch:
+  
+  schedule:
+    - cron: '0 0 * * *'
+  
+jobs:
+  testjob1:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        run: |
+          echo "123!!!"
+
+  
