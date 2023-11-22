@@ -1,8 +1,10 @@
 name: zzztest1
 
 on:
+  workflow_dispatch:
+  
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "0 * * * *"
   
 jobs:
   testjob1:
