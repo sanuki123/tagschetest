@@ -1,9 +1,8 @@
 name: zzztest1
-on: 
-  workflow_dispatch:
-  
+
+on:
   schedule:
-    - cron: '*/3 * * * *'
+    - cron: "*/5 * * * *"
   
 jobs:
   testjob1:
