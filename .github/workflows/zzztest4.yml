@@ -1,0 +1,29 @@
+name: zzztest4
+
+on:
+  push:
+    tags:
+      - 'x*'
+
+jobs:
+  generate-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: user/myimage
+          tags: |
+            type=ref,event=branch
+            type=ref,event=tag
+            type=semver,pattern={{version}}
+            type=sha
+
+      - name: Print metadata
+        run: |
+          echo "Tags: ${{ steps.meta.outputs.tags }}"
+          echo "Labels: ${{ steps.meta.outputs.labels }}"
