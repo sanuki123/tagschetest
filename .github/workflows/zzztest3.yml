@@ -6,7 +6,6 @@ on:
   
   push:
     tags:
-      - 'v[0-9]+'
   
 jobs:
   testjob1:
@@ -14,6 +13,6 @@ jobs:
     steps:
       - 
         run: |
-          echo "123!!!"
+          echo "345!!!"
 
   
