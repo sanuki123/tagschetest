@@ -18,9 +18,6 @@ jobs:
         with:
           images: user/myimage
           tags: |
-            type=ref,event=branch
-            type=ref,event=tag
-            type=semver,pattern={{version}}
             type=sha
 
       - name: Print metadata
