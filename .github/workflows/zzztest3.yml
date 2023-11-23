@@ -15,5 +15,7 @@ jobs:
       - 
         run: |
           echo "タグが追加されたよ!!"
+          echo "${{github.ref}}"
+          echo "${{github.ref_name}}"
 
   
