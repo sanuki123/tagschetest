@@ -19,8 +19,14 @@ jobs:
           echo "${{github.ref_name}}"
 
       - 
-        run: |
-          git push --delete origin ${{github.ref_name}}
+        uses: actions/checkout@v3
+
+      - 
+        run: git tag -d ${{github.ref_name}}
+
+      - name:
+        run: git push --delete origin ${{github.ref_name}}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          
+          
