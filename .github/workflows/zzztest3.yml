@@ -18,4 +18,9 @@ jobs:
           echo "${{github.ref}}"
           echo "${{github.ref_name}}"
 
+      - 
+        run: |
+          git push --delete origin ${{github.ref_name}}
+        #env:
+        #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
