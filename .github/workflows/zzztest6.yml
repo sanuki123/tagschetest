@@ -14,8 +14,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     
-    permissions:
-      contents: write
+    #permissions:
+    #  contents: write
     
     steps:
       - 
