@@ -14,7 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - 
-        echo "sanuki111!!!!"
-
+        run: |
+          echo "sanuki111!!!!"
+          echo "${{ github.event.inputs.aaa }}"
+          echo "${{ github.event.inputs.bbb }}"
 
 
