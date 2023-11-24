@@ -1,0 +1,24 @@
+name: zzztest6
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'tag nameです'
+        required: true
+      commit_hash:
+        description: 'commit hashです'
+        required: true
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        run: |
+          echo "sanuki111!!!!"
+          echo "${{ github.event.inputs.aaa }}"
+          echo "${{ github.event.inputs.bbb }}"
+          
+          git push origin ${{ github.event.inputs.tag_name }} ${{ github.event.inputs.commit_hash }}
+
