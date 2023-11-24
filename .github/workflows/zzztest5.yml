@@ -1,0 +1,20 @@
+name: zzztest5
+
+on:
+  workflow_dispatch:
+    inputs:
+      aaa:
+        description: 'aaaです'
+        required: true
+      bbb:
+        description: 'bbbです'
+        required: true
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        echo "sanuki111!!!!"
+
+
+
