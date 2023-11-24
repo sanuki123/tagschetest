@@ -6,6 +6,7 @@ on:
       aaa:
         description: 'aaaです'
         required: true
+        default: 'V6'
       bbb:
         description: 'bbbです'
         required: true
