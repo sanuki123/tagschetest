@@ -20,8 +20,7 @@ jobs:
       - 
         run: |
           echo "sanuki111!!!!"
-          echo "${{ github.event.inputs.aaa }}"
-          echo "${{ github.event.inputs.bbb }}"
           
-          git push origin ${{ github.event.inputs.tag_name }} ${{ github.event.inputs.commit_hash }}
+          git tag ${{ github.event.inputs.tag_name }} ${{ github.event.inputs.commit_hash }}
+          git push origin ${{ github.event.inputs.tag_name }} 
 
