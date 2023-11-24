@@ -30,4 +30,4 @@ jobs:
 
       - 
         run: |
-          git push origin ${{ github.event.inputs.tag_name }} 
+          git push --tags
