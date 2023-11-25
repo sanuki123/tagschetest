@@ -18,16 +18,18 @@ jobs:
       contents: write
       
     steps:
+
+      - run: |
+          echo "sleep開始"
+          sleep 180
+          echo "sleep終了"
+
       - 
         uses: actions/checkout@v3
         #with:
           #fetch-depth: 0
           #ref:  ${{ github.event.inputs.commit_hash }}
       
-      - run: |
-          echo "sleep開始"
-          sleep 180
-          echo "sleep終了"
       
       - 
         run: |
@@ -35,4 +37,4 @@ jobs:
 
       - 
         run: |
-          git push --tags
+          git push origin
