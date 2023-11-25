@@ -20,4 +20,10 @@ jobs:
         run: |
           echo "hash=${{ github.sha }}"
           echo "hash=$(echo ${{ github.sha }} | cut -c1-7)"
+
+      - 
+        run: |
+          echo "タグ=${{ github.ref }}"
+          echo "タグ=${{ github.ref_name }}"
+          git tag --contains ${{ github.sha }}
       
