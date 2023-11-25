@@ -26,7 +26,7 @@ jobs:
       
       - 
         run: |
-          git tag ${{ github.event.inputs.tag_name }} ${{ github.event.inputs.commit_hash }}
+          git tag ${{ github.event.inputs.tag_name }}
 
       - 
         run: |
