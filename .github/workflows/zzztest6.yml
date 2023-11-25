@@ -24,6 +24,11 @@ jobs:
           #fetch-depth: 0
           #ref:  ${{ github.event.inputs.commit_hash }}
       
+      - run: |
+          echo "sleep開始"
+          sleep 180
+          echo "sleep終了"
+      
       - 
         run: |
           git tag ${{ github.event.inputs.tag_name }}
