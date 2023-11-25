@@ -24,6 +24,9 @@ jobs:
     steps:
       - 
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
       #-------------------------------------------------------
       #タグ削除(使わない場合はコメントアウト)
       - 
@@ -53,7 +56,7 @@ jobs:
 
       - run: |
           echo "sleep開始"
-          sleep 60
+          #sleep 60
           echo "sleep終了"
 
   job2:
