@@ -3,11 +3,33 @@ name: zzztest7
 on:
   workflow_dispatch:
     inputs:
-      tag_name:
-        description: 'tag nameです'
+      tag_name1:
+        description: 'tag name1です'
+        required: true
+      tag_name2:
+        description: 'tag name2です'
         required: true
 
 jobs:
+
+  job0:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      
+    steps:
+      - 
+        uses: actions/checkout@v3
+      
+      - 
+        run: |
+          git tag ${{ github.event.inputs.tag_name1 }}
+
+      - 
+        run: |
+          git push --tags
+
   job1:
     runs-on: ubuntu-latest
       
