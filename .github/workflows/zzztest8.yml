@@ -16,7 +16,7 @@ jobs:
         run: |
           cat test.txt
       
-      
+      - 
         run: |
           echo "hash=${{ github.sha }}"
           echo "hash=$(echo ${{ github.sha }} | cut -c1-7)"
