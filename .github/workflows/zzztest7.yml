@@ -11,7 +11,8 @@ on:
         required: true
       tag_name3:
         description: 'tag name3です(削除)'
-        required: true
+        required: false
+        default ''
 
 jobs:
 
@@ -30,12 +31,13 @@ jobs:
       #-------------------------------------------------------
       #タグ削除(使わない場合はコメントアウト)
       - 
+        if github.event.inputs.tag_name3 != ''
         run: |
           git tag -d ${{ github.event.inputs.tag_name3 }}
+          git push origin --delete ${{ github.event.inputs.tag_name3 }}
 
       - 
         run: |
-          git push origin --delete ${{ github.event.inputs.tag_name3 }}
 
       #-------------------------------------------------------
       #タグ追加
