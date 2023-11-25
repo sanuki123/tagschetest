@@ -1,0 +1,20 @@
+name: zzztest8
+
+on:
+  push:
+    tags:
+      - 'a*'
+
+jobs:
+  generate-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        uses: actions/checkout@v3
+
+      - 
+        run: |
+          cat test.txt
+      
+      
+      
