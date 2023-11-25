@@ -12,7 +12,7 @@ on:
       tag_name3:
         description: 'tag name3です(削除)'
         required: false
-        default ''
+        default: ''
 
 jobs:
 
