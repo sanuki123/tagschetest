@@ -1,26 +1,32 @@
 name: zzztest4
 
 on:
-  push:
-    tags:
-      - 'x*'
+  workflow_dispatch:
 
 jobs:
-  generate-metadata:
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - 
         uses: actions/checkout@v3
 
-      - name: Create Docker meta
+      - 
         id: meta
         uses: docker/metadata-action@v3
         with:
           images: user/myimage
           tags: |
+            type=ref,event=branch
+            type=ref,event=tag
+            type=ref,event=pr
             type=sha
+            type=edge
+            type=raw,value=latest
 
       - name: Print metadata
         run: |
+          echo "------------------------------------------"
           echo "Tags: ${{ steps.meta.outputs.tags }}"
+          echo "------------------------------------------"
           echo "Labels: ${{ steps.meta.outputs.labels }}"
+          echo "------------------------------------------"
