@@ -9,6 +9,9 @@ on:
       tag_name2:
         description: 'tag name2です'
         required: true
+      tag_name3:
+        description: 'tag name3です(削除)'
+        required: true
 
 jobs:
 
@@ -21,14 +24,27 @@ jobs:
     steps:
       - 
         uses: actions/checkout@v3
-      
+      #-------------------------------------------------------
+      #タグ削除(使わない場合はコメントアウト)
+      - 
+        run: |
+          git tag -d ${{ github.event.inputs.tag_name3 }}
+
+      - 
+        run: |
+          git push origin --delete ${{ github.event.inputs.tag_name3 }}
+
+      #-------------------------------------------------------
+      #タグ追加
       - 
         run: |
           git tag ${{ github.event.inputs.tag_name1 }}
 
       - 
         run: |
-          git push --tags
+          git push origin ${{ github.event.inputs.tag_name1 }}
+
+      #-------------------------------------------------------
 
   job1:
     runs-on: ubuntu-latest
