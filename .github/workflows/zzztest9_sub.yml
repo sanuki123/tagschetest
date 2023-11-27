@@ -24,7 +24,7 @@ jobs:
             type=ref,event=branch
             type=sha
             type=sha, format=long
-            type=${{ github.sha }}
+            type=raw,value=${{ github.sha }}
             #type=ref,event=branch
             #type=ref,event=tag
             #type=ref,event=pr
