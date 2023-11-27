@@ -1,0 +1,36 @@
+name: zzztest9_sub
+
+on:
+  workflow_call:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - 
+        uses: actions/checkout@v3
+      
+      - 
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: user/myimage
+          tags: |
+            type=ref,event=branch
+            type=sha
+            type=sha, format=long
+            #type=ref,event=branch
+            #type=ref,event=tag
+            #type=ref,event=pr
+            #type=sha
+            #type=edge
+            #type=raw,value=latest
+
+      - name: Print metadata
+        run: |
+          echo "------------------------------------------"
+          echo "Tags: ${{ steps.meta.outputs.tags }}"
+          echo "------------------------------------------"
+          echo "Labels: ${{ steps.meta.outputs.labels }}"
+          echo "------------------------------------------"
