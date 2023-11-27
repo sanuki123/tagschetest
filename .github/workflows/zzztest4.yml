@@ -7,6 +7,12 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
+    
+      -
+        run: |
+          echo "sha=${{ github.sha }}"
+          echo "sha=${{ github.ref_name }}"
+    
       - 
         uses: actions/checkout@v3
 
@@ -17,11 +23,14 @@ jobs:
           images: user/myimage
           tags: |
             type=ref,event=branch
-            type=ref,event=tag
-            type=ref,event=pr
             type=sha
-            type=edge
-            type=raw,value=latest
+            type=sha, format=long
+            #type=ref,event=branch
+            #type=ref,event=tag
+            #type=ref,event=pr
+            #type=sha
+            #type=edge
+            #type=raw,value=latest
 
       - name: Print metadata
         run: |
